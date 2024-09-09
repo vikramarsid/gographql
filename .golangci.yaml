@@ -1,0 +1,70 @@
+run:
+  go: '1.23'
+  timeout: 10m
+issues:
+  fix: true
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - goconst
+        - gosec
+        - exhaustruct
+linters:
+  enable-all: true
+  disable:
+    - execinquery
+    - gomnd
+    - exportloopref
+    - errorlint
+    - dupword
+    - gocyclo
+    - paralleltest
+    - testpackage
+    - gofumpt
+    - nlreturn
+    - varnamelen
+    - wsl
+    - funlen
+    - errcheck
+    - unparam
+    - gocognit
+    - lll
+    - nolintlint
+    - godox
+    - cyclop
+    - wrapcheck
+    - unused
+    - ireturn
+    - nilnil
+    - makezero
+    - nestif
+    - gochecknoglobals
+    - typecheck
+    - dupl
+    - exhaustive
+    - exhaustruct
+    - forbidigo
+    - depguard
+    - musttag
+    - unconvert
+    - gochecknoinits
+    - containedctx
+    - asasalint
+linters-settings:
+  govet:
+    disable:
+      - printf
+  staticcheck:
+    checks: ["all", "-SA5008", "-SA1008", "-SA1006"]
+  revive:
+    rules:
+      - name: unused-parameter
+        disabled: true
+  gocritic:
+    disabled-checks:
+      - singleCaseSwitch
+      - dupArg
+  interfacebloat:
+    max: 100
