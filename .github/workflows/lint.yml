@@ -1,4 +1,4 @@
-name: CI
+name: "Run Lint"
 
 on:
   push:
@@ -29,7 +29,5 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go }}
-      - name: Build
-        run: go build -v ./...
-      - name: Test
-        run: go test ./... -coverprofile=coverage.txt
+      - name: Golangci-lint
+        uses: golangci/golangci-lint-action@v6.1.0

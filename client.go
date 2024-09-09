@@ -290,7 +290,7 @@ func (e GraphQLErrors) Error() string {
 	for _, err := range e {
 		messages = append(messages, err.Message)
 	}
-	return "graphql:" + strings.Join(messages, "; ")
+	return "graphql: " + strings.Join(messages, "; ")
 }
 
 // GraphQLError represents a GraphQL error.
